@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MANAS AI/ML-based mental health scoring system" />
+    <title>MANAS | AI/ML-Based Mental Health Scoring System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="wordmark" href="/" aria-label="MANAS home">MANAS</a>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-subtitle">AI/ML-Based Mental Health Scoring System</span>
+        <nav aria-label="Primary navigation">
+          <a href="/">Home</a>
+          <a class="active" href="#assessment">Assessment</a>
+          <a href="#about">About</a>
+        </nav>
+      </header>
+
+      <main id="assessment">
+        <section class="hero" aria-labelledby="page-title">
+          <p class="eyebrow">A DIGITAL WELLBEING ASSESSMENT</p>
+          <h1 id="page-title">Understand your digital wellbeing.</h1>
+          <span class="heading-rule" aria-hidden="true"></span>
+          <p class="welcome-copy">
+            Explore how your everyday digital habits and lifestyle patterns relate to your predicted mental health score.
+          </p>
+        </section>
+
+        <div class="main-content">
+          <section class="assessment-card" aria-labelledby="assessment-heading">
+          <div class="card-heading">
+            <span class="step-badge">01</span>
+            <div>
+              <h2 id="assessment-heading">Your Assessment</h2>
+              <p>All fields are required. Use your best estimate.</p>
+            </div>
+          </div>
+
+          <form id="assessment-form" novalidate>
+            <fieldset>
+              <legend><span aria-hidden="true">♙</span> About You</legend>
+              <div class="field-grid">
+                <label>Age<input type="number" name="Age" min="1" max="120" step="1" required /><span class="hint">Years</span></label>
+                <label>Gender<select name="Gender" required><option value="">Select gender</option><option>Female</option><option>Male</option></select></label>
+                <label>Country<select name="Country" required><option value="">Select country</option><option>Australia</option><option>Bangladesh</option><option>Brazil</option><option>Canada</option><option>China</option><option>Denmark</option><option>Finland</option><option>France</option><option>Germany</option><option>India</option><option>Ireland</option><option>Italy</option><option>Japan</option><option>Malaysia</option><option>Maldives</option><option>Mexico</option><option>Nepal</option><option>Netherlands</option><option>New Zealand</option><option>Other</option><option>Pakistan</option><option>Poland</option><option>Russia</option><option>Singapore</option><option>South Korea</option><option>Spain</option><option>Sri Lanka</option><option>Switzerland</option><option>Turkey</option><option>UAE</option><option>UK</option><option>USA</option></select></label>
+                <label>Academic Level<select name="Academic_Level" required><option value="">Select level</option><option>Graduate</option><option>High School</option><option>Undergraduate</option></select></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend><span aria-hidden="true">▣</span> Digital Habits</legend>
+              <div class="field-grid">
+                <label>Most Used Platform<select name="Most_Used_Platform" required><option value="">Select platform</option><option>Facebook</option><option>Instagram</option><option>KakaoTalk</option><option>LINE</option><option>LinkedIn</option><option>Snapchat</option><option>TikTok</option><option>Twitter</option><option>VKontakte</option><option>WeChat</option><option>WhatsApp</option><option>YouTube</option></select></label>
+                <label>Purpose of Use<select name="Purpose_Of_Use" required><option value="">Select purpose</option><option>Education</option><option>Entertainment</option><option>Networking</option><option>News</option></select></label>
+                <label>Avg Daily Usage Hours<input type="number" name="Avg_Daily_Usage_Hours" min="0" max="24" step="0.1" required /><span class="hint">Hours / day</span></label>
+                <label>Daily Unlocks<input type="number" name="Daily_Unlocks" min="0" max="1000" step="1" required /><span class="hint">Unlocks / day</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend><span aria-hidden="true">♡</span> Lifestyle &amp; Wellbeing</legend>
+              <div class="field-grid">
+                <label>Study Hours<input type="number" name="Study_Hours" min="0" max="24" step="0.1" required /><span class="hint">Hours / day</span></label>
+                <label>Physical Activity Hours<input type="number" name="Physical_Activity_Hours" min="0" max="24" step="0.1" required /><span class="hint">Hours / day</span></label>
+                <label>Sleep Hours Per Night<input type="number" name="Sleep_Hours_Per_Night" min="0" max="24" step="0.1" required /><span class="hint">Hours / night</span></label>
+                <label>Stress Level<select name="Stress_Level" required><option value="">Select level</option><option>Low</option><option>Medium</option><option>High</option><option>Very High</option></select></label>
+              </div>
+            </fieldset>
+
+            <div id="form-error" class="message error" role="alert" hidden></div>
+            <div class="form-actions">
+              <button class="primary-button" type="submit"><span aria-hidden="true">▥</span> Calculate Score</button>
+              <button class="form-reset-button" id="form-reset-button" type="button"><span aria-hidden="true">↻</span> Reset Assessment</button>
+            </div>
+          </form>
+          </section>
+
+          <aside class="result-card" aria-live="polite">
+          <div class="result-intro" id="welcome-state">
+            <div class="card-heading inverse">
+              <span class="step-badge light">02</span>
+              <div><h2>Your Result</h2><p>Your predicted mental health score and personalized suggestions.</p></div>
+            </div>
+            <div class="empty-result">Complete the assessment to see your predicted score.</div>
+          </div>
+
+          <div class="result-state" id="score-state" hidden>
+            <div class="card-heading inverse">
+              <span class="step-badge light">02</span>
+              <div><h2>Your Result</h2><p>Your predicted mental health score and personalized suggestions.</p></div>
+            </div>
+            <div class="score-panel">
+              <h3>Predicted Mental Health Score</h3>
+              <div class="score-line"><span id="score-value">--</span><strong>/ 10</strong><span class="range-pill" id="range-title">Upper Range</span></div>
+              <div class="score-track"><span class="score-fill" id="score-fill"></span></div>
+              <div class="range-summary"><span aria-hidden="true">ⓘ</span><span id="range-copy">Dataset-relative statistical range.</span></div>
+              <p class="result-disclaimer">MANAS generates an experimental machine-learning score based on patterns in its training dataset. It is not a clinical assessment, diagnosis or a substitute for professional advice.</p>
+              <section class="suggestions" aria-labelledby="suggestions-title">
+                <h3 id="suggestions-title"><span aria-hidden="true">♧</span> Suggestions for Wellbeing</h3>
+                <ul id="suggestion-list"></ul>
+              </section>
+              <button class="secondary-button" id="reset-button" type="button">Start another assessment</button>
+            </div>
+          </div>
+          </aside>
+        </div>
+      </main>
+
+      <footer id="about"><span>MANAS</span><span>Experimental tool · Not a medical diagnosis</span></footer>
+    </div>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
